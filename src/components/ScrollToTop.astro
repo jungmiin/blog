@@ -1,0 +1,34 @@
+<!-- Scroll to Top Button -->
+<button id="scrollToTop" class="hidden fixed bottom-8 right-8 md:bottom-12 md:right-12 text-[#000000] dark:text-white opacity-40 hover:opacity-100 transition-opacity z-50" aria-label="Scroll to top">
+<div class="flex items-center gap-2">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+    <span>Top</span>
+</div>
+</button>
+<script>
+// Scroll to Top Button
+(function initScrollToTop() {
+const scrollToTopBtn = document.getElementById('scrollToTop');
+if (scrollToTopBtn) {
+function toggleVisibility() {
+    if (window.scrollY > 300) {
+    scrollToTopBtn.classList.remove('hidden');
+    } else {
+    scrollToTopBtn.classList.add('hidden');
+    }
+}
+function scrollToTop() {
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+    });
+}
+window.addEventListener('scroll', toggleVisibility);
+scrollToTopBtn.addEventListener('click', scrollToTop);
+// Initial check
+toggleVisibility();
+}
+})();
+</script>

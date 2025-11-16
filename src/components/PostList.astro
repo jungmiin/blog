@@ -1,0 +1,19 @@
+---
+import PostItem from "./PostItem.astro";
+
+const postList = Object.values(import.meta.glob('../pages/blog/*.md', { eager: true }));
+---
+
+<main>
+<div class="max-w-6xl mx-auto px-6 py-8 md:px-12 lg:px-16 md:py-12 pb-24 md:pb-20" style="padding-top: 80px">
+    <!-- Header -->
+    <div class="mb-8 md:mb-10">
+    <h1 class="text-[64px] leading-[0.9] tracking-tight font-['TINY_5x3'] font-[500] text-[#000000] dark:text-white">
+        blog
+    </h1>
+    </div>
+    <!-- Blog Posts Grid -->
+    <div class="space-y-1">
+    {postList.map((post: any, index: number) => <PostItem index={index+1} url={post.url} title={post.frontmatter.title} category={post.frontmatter.category} pubDate={post.frontmatter.pubDate} description={post.frontmatter.description} />)}
+    </div>
+</main>
