@@ -8,7 +8,6 @@ const formattedDate = new Date(frontmatter.pubDate)
   .replace(/-/g, ".");
 ---
 <Layout>
-      <main>
     <main class="max-w-6xl mx-auto px-6 py-8 md:px-12 lg:px-16 md:py-12 pb-24 md:pb-20" style="padding-top: 80px">
       <!-- Back Button -->
       <a href="/blog.html" class="flex items-center gap-2 text-[#000000] dark:text-white transition-all mb-12">
@@ -29,6 +28,8 @@ const formattedDate = new Date(frontmatter.pubDate)
           {frontmatter.title}
         </h1>
       </header>
+      <article class="prose prose-neutral dark:prose-invert max-w-none mx-auto px-4">
       <slot />
+      </article>
     </main>
 </Layout>
